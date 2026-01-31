@@ -1,11 +1,12 @@
-
 import pandas as pd
 #read data from csv file into dataframe
-df=pd.read_csv(r"C:\Users\Ratul\Downloads\sales_data_sample (1).csv",encoding="latin=1")
+df=pd.read_csv(r"C:\Users\Ratul\Downloads\DimCustomers.csv",encoding="latin1")
+#UTF-8
 #df=pd.read_excel(r"SampleSuperstore.xlsx")
 #df=pd.read_json("sample_Data.json")
-print(df)
-#gcsfs
+#print(df)
+#gcsfs library-goggle cloud
+print(df.to_string(index=False))
 
 
 
