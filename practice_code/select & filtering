@@ -1,0 +1,62 @@
+# -select specific column
+# -filter rows
+# -combine multiple condition
+#
+#  square brackets
+#  boolean conditions
+#
+# selecting columns
+# a series
+# dataframe multiple columns of data
+#
+#  column = df["Column Name"]
+#  subset = df[["Column1","Column2","..."]]
+#
+#  filtering rows
+#  boolean indexing
+#
+#  based on a single condition
+#  filtered_Rows = df[df["Salary"] > 50000]
+#
+#  combine multiple conditions
+#  filtered_Rows = df[(df["Column"] > value) & (df["Column2"] < 80000)]
+
+
+
+import pandas as pd
+data={
+    "name":["ratul","saion","sakib","neymar","abd"],
+    "age":[10,20,21,5,30],
+    "city":["dhaka","german","america","brazil","sa"],
+    "perfomance":[10,9,8,9,7]
+
+}
+df=pd.DataFrame(data)
+print("sample dataframe")
+print(df.to_string(index=False))
+print("*******")
+print("Name Column(single column return series)")
+print(df["name"])
+print("*******")
+print("subset with name,age & city column")
+print(df[["name","age","city"]])
+print("*******")
+print("filtering rows who lives in dhaka")
+print(df[df["city"]=="dhaka"])
+print("*******")
+print("filtering rows (age>5 & perfomance>7)")
+print(df[(df["age"]>5) & (df["perfomance"]>7)])
+# Use of Parentheses (): When applying multiple conditions in Pandas, it is mandatory to wrap each individual condition inside brackets ().
+# Bitwise Operators: For multiple conditions, you must use the bitwise operator & instead of and, and | instead of or.
+
+filtered_df = df[df["city"].isin(["dhaka", "german"])]
+#Eta aro readable:
+#filtered_df = df.query("city in ['dhaka', 'german']")
+print(filtered_df)
+print("*******")
+# df1=pd.read_csv(r'C:\Users\Ratul\Downloads\sales_data_sample (1).csv',encoding="latin1")
+# print(df1)
+# print(f'shape:{df.shape}')
+# print(f'columns:{df.columns}')
+# print(df1[(df1["QUANTITYORDERED"]<40)&(df1["SALES"]<2000)])
+
